@@ -1,0 +1,79 @@
+{
+  "name": "react-bullet-screen",
+  "version": "0.1.0",
+  "description": "A lightweight React infinite loop bullet screen component",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --open development",
+    "build": "npx babel src --out-dir dist --copy-files --extensions '.tsx'" ,
+    "build:demo": "webpack --mode production",
+    "deploy": "gh-pages -d example/dist",
+    "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tong233/react-bullet-screen.git"
+  },
+  "keywords": [
+    "弹幕",
+    "danmaku",
+    "barrage",
+    "bullet",
+    "bullet-screen",
+    "react",
+    "danmu"
+  ],
+  "author": "tong233",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tong233/react-bullet-screen/issues"
+  },
+  "homepage": "https://github.com/tong233/react-bullet-screen#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./**/*.{js,jsx,ts,tsx,css}": [
+      "prettier --write",
+      "npm run lint",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/node": "^14.0.1",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "css-loader": "^3.5.3",
+    "eslint": "^7.0.0",
+    "eslint-config-alloy": "^3.7.2",
+    "eslint-plugin-react": "^7.20.0",
+    "gh-pages": "^2.2.0",
+    "html-webpack-plugin": "^4.3.0",
+    "html-webpack-template": "^6.2.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.2",
+    "prettier": "^2.0.5",
+    "style-loader": "^1.2.1",
+    "typescript": "^3.9.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}

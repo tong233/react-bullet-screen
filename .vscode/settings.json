@@ -1,0 +1,25 @@
+{
+  // eslint作用文件类型
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+  ],
+  // 不使用默认的格式化
+  "editor.formatOnSave": false,
+  // 保存时根据eslint规则自动格式化
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  // pretter
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
+  },
+}

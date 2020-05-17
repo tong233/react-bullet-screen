@@ -1,0 +1,8 @@
+.react-bullte-screen {
+  position: relative;
+  overflow: hidden;
+}
+.react-bullte-screen .bullte-item {
+  position: absolute;
+  white-space: nowrap;
+}

@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  padding: 20px 0;
+}
+
+.item {
+  font-size: 14px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  line-height: 24px;
+  height: 24px;
+  padding: 0px 12px;
+  border-radius: 12px;
+}
