@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
 
 interface BulletProps {
   data: any[]
@@ -104,6 +103,8 @@ class Bullet extends PureComponent<BulletProps, {}> {
     div.classList.add('bullet-item')
     div.style.top = `${rowIndex * rowHeight}px`
     div.style.left = `${this.srollWidth}px`
+    div.style.position = 'absolute'
+    div.style.whiteSpace = 'nowrap'
 
     const handleTransitionEnd = () => {
       // 弹幕运动完成后移除监听，清除弹幕
@@ -121,7 +122,7 @@ class Bullet extends PureComponent<BulletProps, {}> {
     return (
       <div
         className="react-bullet-screen"
-        style={{ minHeight: `${row * rowHeight}px` }}
+        style={{ position: 'relative', overflow: 'hidden', minHeight: `${row * rowHeight}px` }}
         ref={(ref) => {
           this.bulletRef = ref
         }}

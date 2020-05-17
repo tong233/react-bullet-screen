@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+// import Bullet from 'react-bullet-screen'
 import Bullet from '../../src/index'
 import './app.css'
 

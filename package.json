@@ -1,12 +1,12 @@
 {
   "name": "react-bullet-screen",
-  "version": "0.1.0",
-  "description": "A lightweight React infinite loop bullet screen component",
+  "version": "0.1.1",
+  "description": "A lightweight customizable React infinite loop bullet screen component",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open development",
-    "build": "npx babel src --out-dir dist --copy-files --extensions '.tsx'" ,
+    "build": "npx babel src --out-dir dist --extensions '.tsx'",
     "build:demo": "webpack --mode production",
     "deploy": "gh-pages -d example/dist",
     "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'"
@@ -72,7 +72,6 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.2.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
