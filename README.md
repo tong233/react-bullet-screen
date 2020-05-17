@@ -1,19 +1,19 @@
 
 # React-Bullet-Screen
 
-🚀一个轻量的React无限循环弹幕组件. [live demo](https://tong233.github.io/react-bullet-screen/)
+🚀一个轻量的可自定义的React无限循环弹幕组件. [live demo](https://tong233.github.io/react-bullet-screen/)
 
 ## Installation
 
 ```bash
-npm install React-Bullet-Screen --save
+npm install react-bullet-screen --save
 ```
 
 ## Usage
 
 ```javascript
 import React, { useState } from 'react'
-import Bullte from 'react-bullet-screen'
+import Bullet from 'react-bullet-screen'
 
 const text = [
   '我是第一条弹幕',
@@ -26,14 +26,14 @@ const text = [
 const App = () => {
   const [data] = useState(text)
 
-  const renderBullteItem = (item) => {
+  const renderBulletItem = (item) => {
     return <div className="item">{item}</div>
   }
 
   return data.length ? (
-    <Bullte
+    <Bullet
       data={data}
-      renderItem={renderBullteItem}
+      renderItem={renderBulletItem}
       speed={50}
       row={3}
       rowHeight={40}

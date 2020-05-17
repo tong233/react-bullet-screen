@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Bullte from '../../src/index'
+import Bullet from '../../src/index'
 import './app.css'
 
 const text = [
@@ -13,12 +13,12 @@ const text = [
 const App = () => {
   const [data] = useState(text)
 
-  const renderBullteItem = (item) => {
+  const renderBulletItem = (item) => {
     return <div className="item">{item}</div>
   }
 
   return data.length ? (
-    <Bullte data={data} renderItem={renderBullteItem} speed={50} row={3} rowHeight={40} spacing={120} />
+    <Bullet data={data} renderItem={renderBulletItem} speed={50} row={3} rowHeight={40} spacing={120} />
   ) : null
 }
 

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 
-interface BullteProps {
+interface BulletProps {
   data: any[]
   renderItem: (item: any) => React.ReactElement
   speed?: number // px/s
@@ -13,7 +13,7 @@ interface BullteProps {
 /**
  * 水平无限循环弹幕
  */
-class Bullte extends PureComponent<BullteProps, {}> {
+class Bullet extends PureComponent<BulletProps, {}> {
   static defaultProps = {
     speed: 50,
     row: 3,
@@ -24,7 +24,7 @@ class Bullte extends PureComponent<BullteProps, {}> {
 
   launchedCount: number
 
-  bullteRef: HTMLDivElement
+  bulletRef: HTMLDivElement
 
   srollWidth: number
 
@@ -48,15 +48,15 @@ class Bullte extends PureComponent<BullteProps, {}> {
     const { data, row } = this.props
     // 设定时器避免初始化拿不到宽度
     setTimeout(() => {
-      if (this.bullteRef) {
-        this.srollWidth = this.bullteRef.offsetWidth
+      if (this.bulletRef) {
+        this.srollWidth = this.bulletRef.offsetWidth
       }
 
       while (this.launchedCount < row) {
-        const bullte = data[this.launchedCount]
+        const bullet = data[this.launchedCount]
         const count = this.launchedCount
         setTimeout(() => {
-          this.launchBarrge(bullte, count)
+          this.launchBarrge(bullet, count)
         }, count * 1500)
         this.launchedCount++
       }
@@ -66,53 +66,53 @@ class Bullte extends PureComponent<BullteProps, {}> {
   /**
    * 发射弹幕
    */
-  launchBarrge(bullte, rowIndex) {
-    if (!bullte) return
-    const bullteEle = this.createBullteEle(bullte, rowIndex)
-    if (this.bullteRef) this.bullteRef.appendChild(bullteEle)
+  launchBarrge(bullet, rowIndex) {
+    if (!bullet) return
+    const bulletEle = this.createBulletEle(bullet, rowIndex)
+    if (this.bulletRef) this.bulletRef.appendChild(bulletEle)
     const { data, speed, spacing } = this.props
-    let bullteWidth = bullteEle.offsetWidth
+    let bulletWidth = bulletEle.offsetWidth
     // 拿不到宽度按一屏处理
-    if (bullteWidth === 0) bullteWidth = this.srollWidth
+    if (bulletWidth === 0) bulletWidth = this.srollWidth
     // 全程滚动距离
-    const distance = this.srollWidth + bullteWidth
+    const distance = this.srollWidth + bulletWidth
 
     const duration = distance / speed
     // 弹幕滚动至spacing所需时间
-    const time = (bullteWidth + spacing) / speed
+    const time = (bulletWidth + spacing) / speed
 
-    bullteEle.style.transform = `translateX(${-distance}px)`
-    bullteEle.style.transition = `transform ${duration}s linear`
+    bulletEle.style.transform = `translateX(${-distance}px)`
+    bulletEle.style.transition = `transform ${duration}s linear`
 
     // 当弹幕拉开距离spacing时发射下一个弹幕
     this.timer = window.setTimeout(() => {
-      const nextBullte = data[this.launchedCount % data.length]
-      this.launchBarrge(nextBullte, rowIndex)
+      const nextBullet = data[this.launchedCount % data.length]
+      this.launchBarrge(nextBullet, rowIndex)
       this.launchedCount++
     }, time * 1000)
   }
 
   /**
    * 创建弹幕元素
-   * @param {*} bullte
+   * @param {*} bullet
    * @param {*} rowIndex // 所在行
    */
-  createBullteEle(bullte, rowIndex: number) {
+  createBulletEle(bullet, rowIndex: number) {
     const { renderItem, rowHeight } = this.props
     const div = document.createElement('div')
 
-    div.classList.add('bullte-item')
+    div.classList.add('bullet-item')
     div.style.top = `${rowIndex * rowHeight}px`
     div.style.left = `${this.srollWidth}px`
 
     const handleTransitionEnd = () => {
       // 弹幕运动完成后移除监听，清除弹幕
       div.removeEventListener('transitionend', handleTransitionEnd)
-      this.bullteRef.removeChild(div)
+      this.bulletRef.removeChild(div)
     }
     div.addEventListener('transitionend', handleTransitionEnd)
 
-    ReactDOM.render(renderItem(bullte), div)
+    ReactDOM.render(renderItem(bullet), div)
     return div
   }
 
@@ -120,14 +120,14 @@ class Bullte extends PureComponent<BullteProps, {}> {
     const { row, rowHeight } = this.props
     return (
       <div
-        className="react-bullte-screen"
+        className="react-bullet-screen"
         style={{ minHeight: `${row * rowHeight}px` }}
         ref={(ref) => {
-          this.bullteRef = ref
+          this.bulletRef = ref
         }}
       />
     )
   }
 }
 
-export default Bullte
+export default Bullet
