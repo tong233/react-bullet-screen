@@ -1,7 +1,8 @@
 
 # React-Bullet-Screen
 
-🚀一个轻量的可自定义的React无限循环弹幕组件. [live demo](https://tong233.github.io/react-bullet-screen/)
+🚀 A lightweight customizable React infinite loop bullet screen component. [live demo](https://tong233.github.io/react-bullet-screen/)
+一个轻量的可自定义的React无限循环弹幕组件. 
 
 ## Installation
 
@@ -16,24 +17,24 @@ import React, { useState } from 'react'
 import Bullet from 'react-bullet-screen'
 
 const text = [
-  '我是第一条弹幕',
-  '我是第二条弹幕啊',
-  '我是第三条弹幕啊啊',
-  '我是第四条弹幕啊啊啊',
-  '我是第五条弹幕啊啊啊啊',
+  'I am the first',
+  'I am the second ha',
+  'I am the third haha',
+  'I am the fourth hahaha',
+  'I am the fifth hahahahaha',
 ]
 
 const App = () => {
   const [data] = useState(text)
 
-  const renderBulletItem = (item) => {
+  const renderItem = (item) => {
     return <div className="item">{item}</div>
   }
 
   return data.length ? (
     <Bullet
       data={data}
-      renderItem={renderBulletItem}
+      renderItem={renderItem}
       speed={50}
       row={3}
       rowHeight={40}
@@ -45,13 +46,14 @@ const App = () => {
 
 ## API
 
-| Prop | Description | Type | Default | 必须
+| Prop | Description | Type | Default | required
 | --- | --- | --- | -- | -- |
-| data | 弹幕数据 | Array<T> | [] | true
-| renderItem | 渲染每条弹幕 | (item: T) => React.ReactElement | () => undefined  | true
-| speed | 弹幕运动速度(px/s) | number | 50  | false
-| rowHeight | 轨道高度(px) | number | 200 | false
-| spacing | 弹幕水平间隔(px) | string | 120 | false
+| data | Barrage datas | T[] | [] | true
+| renderItem | Render every barrage | (item: T) => React.ReactElement | () => undefined  | true
+| speed | Barrage movement speed (px/s) | number | 50  | false
+| row | Number of tracks | number | 3  | false
+| rowHeight | Movement track height (px) | number | 200 | false
+| spacing | Barrage Horizontal spacing (px) | number | 120 | false
 
 ## License
 MIT

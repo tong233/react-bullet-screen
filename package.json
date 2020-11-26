@@ -1,6 +1,6 @@
 {
   "name": "react-bullet-screen",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A lightweight customizable React infinite loop bullet screen component",
   "main": "dist/index.js",
   "scripts": {
@@ -9,12 +9,9 @@
     "build": "npx babel src --out-dir dist --extensions '.tsx'",
     "build:demo": "webpack --mode production",
     "deploy": "gh-pages -d example/dist",
-    "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'"
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tong233/react-bullet-screen.git"
-  },
+  "repository": "tong233/react-bullet-screen",
   "keywords": [
     "弹幕",
     "danmaku",
@@ -36,7 +33,7 @@
     }
   },
   "lint-staged": {
-    "./**/*.{js,jsx,ts,tsx,css}": [
+    "src/**/*.{js,jsx,ts,tsx,css}": [
       "prettier --write",
       "npm run lint",
       "git add"

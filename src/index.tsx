@@ -32,7 +32,6 @@ class Bullet extends PureComponent<BulletProps, {}> {
   constructor(props) {
     super(props)
     this.launchedCount = 0 // 已经发射的弹幕数
-    this.srollWidth = document.body.clientWidth
   }
 
   componentDidMount() {
@@ -47,9 +46,7 @@ class Bullet extends PureComponent<BulletProps, {}> {
     const { data, row } = this.props
     // 设定时器避免初始化拿不到宽度
     setTimeout(() => {
-      if (this.bulletRef) {
-        this.srollWidth = this.bulletRef.offsetWidth
-      }
+      this.srollWidth = this.bulletRef ? this.bulletRef.offsetWidth : document.body.clientWidth
 
       while (this.launchedCount < row) {
         const bullet = data[this.launchedCount]
