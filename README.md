@@ -2,6 +2,7 @@
 # React-Bullet-Screen
 
 🚀 A lightweight customizable React infinite loop bullet screen component. [live demo](https://tong233.github.io/react-bullet-screen/)
+
 一个轻量的可自定义的React无限循环弹幕组件. 
 
 ## Installation
